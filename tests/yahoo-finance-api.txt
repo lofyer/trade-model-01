@@ -1,0 +1,2 @@
+1. Install ystockquote and yahoo-finance at first.
+    # pip install ystockquote yahoo-finance
