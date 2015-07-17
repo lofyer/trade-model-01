@@ -1,2 +1,11 @@
 1. Install ystockquote and yahoo-finance at first.
     # pip install ystockquote yahoo-finance
+
+2. Example of yahoo-finance :
+    import yahoo_finance
+    YHO = yahoo_finance.Share("BABA")
+    YHO.get_price()
+
+3. Example of ystockquote:
+    import ystockquote
+    BABA = ystockquote.get_price("BABA")
