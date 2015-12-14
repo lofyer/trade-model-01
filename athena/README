@@ -1,0 +1,3 @@
+sudo easy_install feedparser
+sudo easy_install Future
+sudo easy_install rawdog
