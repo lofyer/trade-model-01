@@ -3,3 +3,9 @@ Hera - Yahoo Finance collector.
 Hades - Trade Broker.
 
 Athena - News collector.
+
+Odin - User interface.
+
+[Note]
+Ugly portal.
+Redis as backend.
