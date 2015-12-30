@@ -1,3 +1,5 @@
+[Module]
+
 Hera - Yahoo Finance collector.
 
 Hades - Trade Broker.
@@ -6,6 +8,26 @@ Athena - News Collector.
 
 Odin - User Interface.
 
-[Note]
-Ugly portal.
-Redis as backend.
+[Feature]
+
+Ugly portal & Redis as backend.
+
+[Reference]
+
+Trade Strategy
+https://github.com/mementum/backtrader
+
+Plot Analysis
+https://github.com/thalesians/pythalesians
+
+Real-Time Analysis with Hadoop
+https://github.com/panpanpandas/ultrafinance
+
+Offline Trade Strategy
+https://github.com/maihde/quant
+
+Trade Strategy module
+https://github.com/CarterBain/AlephNull
+
+HFT
+https://github.com/jamesmawm/High-Frequency-Trading-Model-with-IB
