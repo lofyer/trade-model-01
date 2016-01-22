@@ -1,65 +1,82 @@
 亚投行
 www.aiib.org
 
+中国人民银行
+www.pbc.gov.cn
+
 中央银行
 www.bis.org
+http://www.bis.org/rss/index.htm
 
 美联储
 www.federalreserve.gov
+http://www.federalreserve.gov/feeds/default.htm
 
 欧洲中央银行
 www.ecb.int
+https://www.ecb.europa.eu/home/html/rss.en.html
 
 日本银行
 www.boj.or.jp/en
 
 瑞士国民银行
 www.snb.ch
+http://www.snb.ch/en/ifor/media/id/media_rss#t2
 
-英格兰银行
+英格兰银行 - RSS注意转码
 www.bankofengland.co.uk
+http://www.bankofengland.co.uk/Pages/SiteFeed.aspx
 
 澳大利亚储备银行
-www.rba.gov.nu
+www.rba.gov.au
+http://www.rba.gov.au/updates/#rss
 
 新西兰储备银行
 www.rbnz.govt.nz
-
-中国人民银行
-www.pbc.gov.cn
+http://www.rbnz.govt.nz/feeds/
 
 经济合作与发展组织
 www.oecd.org
 
 美国经济统计机构
 www.esa.doc.gov
+http://www.esa.doc.gov/rss.xml
 
 美国劳工统计局
 www.bls.gov
+http://www.bls.gov/feed/cpi.rss
 
 美国人口普查局
 www.census.gov
+http://www.census.gov/about/contact-us/feeds.html
 
 欧盟委员会欧洲统计局
 epp.eurostat.ec.europa.eu/portal/page/portal/eurostat/home
+http://ec.europa.eu/eurostat/web/rss/about-rss
 
 日本统计局和统计中心
 www.stat.go.jp/english
+http://www.stat.go.jp/whatsnew/news.rdf
 
 瑞士联邦统计办公室
 www.statistics.admin.ch
+http://www.bfs.admin.ch/bfs/portal/en/index/news/publikationen.rss2.html
 
 英国国家统计局
 www.statistics.gov.uk
+https://www.gov.uk/government/statistics.atom?publication_filter_option=statistics
 
 澳大利亚统计局
-www.absgov.au
+www.abs.gov.au
+http://www.abs.gov.au/websitedbs/D3310114.nsf/Home/RSS+Help
 
 新西兰统计局
 www.stats.govt.nz
+http://www.stats.govt.nz/tools_and_services/rss.aspx
 
 中国国家统计局
 www.stats.gov.cn
+http://www.stats.gov.cn/wzgl/rss/
 
 中国国家统计局en
 www.stats.gov.cn/english
