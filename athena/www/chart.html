@@ -1,0 +1,45 @@
+<html>
+<head>
+<link rel="stylesheet" href="css/buttons.css">
+</head>
+<body>
+<!-- TradingView Widget BEGIN -->
+<script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
+<script type="text/javascript">
+new TradingView.widget({
+  "autosize": true,
+  "symbol": "FX:EURUSD",
+  "interval": "30",
+  "timezone": "Europe/London",
+  "theme": "White",
+  "style": "0",
+  "locale": "en",
+  "toolbar_bg": "rgba(241, 243, 246, 1)",
+  "withdateranges": true,
+  "hide_side_toolbar": false,
+  "allow_symbol_change": true,
+  "watchlist": [
+    "FX:EURUSD",
+    "FX:EURCHF",
+    "FX:EURJPY",
+    "FX:EURGBP",
+    "FX:EURAUD",
+    "FX:USDCAD",
+    "FX:USDCHF",
+    "FX:USDCNH"
+  ],
+  "details": true,
+  "calendar": true,
+  "studies": [
+    "BB@tv-basicstudies",
+    "MACD@tv-basicstudies"
+  ],
+  "show_popup_button": true,
+  "popup_width": "1000",
+  "popup_height": "650"
+});
+</script>
+<!-- TradingView Widget END -->
+
+</body>
+</html>
