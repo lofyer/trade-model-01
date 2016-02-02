@@ -63,6 +63,8 @@ $feed->set_output_encoding('UTF-8');
 $success = $feed->init();
 $con = mysql_connect("localhost", "root", "pswd4mysql");
 mysql_select_db("rss", $con);
+mysql_query("set character set 'utf8'");
+mysql_query("set names 'utf8'");
 
 // We'll make sure that the right content type and character encoding gets set automatically.
 // This function will grab the proper character encoding, as well as set the content type to text/html.
@@ -106,7 +108,7 @@ $feed->handle_content_type();
 		do centered floats purely with CSS. The table box model allows for a dynamic width while centered, while the
 		CSS box model for DIVs doesn't allow for it. :( -->
 		<table cellpadding="0" cellspacing="0" border="0"><tbody><tr><td>
-<ul><li id="demo"><a href="./">News</a></li><li><a href="http://forex.fusionworks.cn/chart.html" target="_blank">Trend</a></li><li><a href="http://www.fusionworks.cn/" target="_blank">Site</a></li></ul>
+<ul><li id="demo"><a href="./">News</a></li><li><a href="http://forex.fusionworks.cn/chart.html" target="_blank">Trend</a></li><li><a href="http://forex.fusionworks.cn:9090/renderer?use=crawler&name=default&login=lofyer&key=c8eb500cb25d1e16054552e699930f7d&query=" target="_blank">Search</a></li><li><a href="http://www.fusionworks.cn/" target="_blank">Site</a></li></ul>
 
 			<div class="clearLeft"></div>
 		</td></tr></tbody></table>
@@ -297,18 +299,18 @@ $feed->handle_content_type();
                                     // Save them to sql
                                     $src_title = mysql_real_escape_string($feed->get_title());
                                     $src_link = mysql_real_escape_string($feed->get_link());
-                                    $permalink = mysql_real_escape_string($item->get_permalink());
-                                    $title = mysql_real_escape_string($item->get_title());
-                                    $content = mysql_real_escape_string($item->get_description());
-                                    $date = $item->get_date('j-M-Y, g:i:a');
-                                    $content_hash = md5("$title + $content + $date");
+                                    $item_permalink = mysql_real_escape_string($item->get_permalink());
+                                    $item_title = mysql_real_escape_string($item->get_title());
+                                    $item_content = mysql_real_escape_string($item->get_description());
+                                    $item_date = $item->get_date('j-M-Y, g:i:a');
+                                    $content_hash = md5("$item_title + $item_content + $item_date");
                                     $result = mysql_query("SELECT * FROM posts WHERE content_hash = '" . $content_hash . "'");
                                     $num_rows = mysql_num_rows($result);
  
                                      if ($num_rows > 0) { print "Saved"; }
                                      else
                                      {
-                                       mysql_query("INSERT INTO posts (src_title, src_link, date, content, content_hash, url, title) VALUES ('" . $src_title . "','" . $src_link . "','" . $date . "', '" . $content . "', '" . $content_hash . "', '" . $permalink . "', '" . $title . "')", $con) or die();
+                                       mysql_query("INSERT INTO posts (src_title, src_link, date, content, content_hash, url, title) VALUES ('" . $src_title . "','" . $src_link . "','" . $item_date . "', '" . $item_content . "', '" . $content_hash . "', '" . $item_permalink . "', '" . $item_title . "')", $con);
                                      }
                                     ?>
 					<div class="chunk">
