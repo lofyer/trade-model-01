@@ -54,12 +54,15 @@ if (!empty($_GET['force']) && $_GET['force'] == 'true')
 // all that other good stuff.  The feed's information will not be available to SimplePie before
 // this is called.
 $feed->set_cache_location('/var/www/forex/rss/rss/cache');
-#$feed->set_cache_location('mysql://root:pswd4mysql@localhost:3306/simplepie_rss');
+#$feed->set_cache_location('mysql://root:pswd4mysql@localhost:3306/rss');
 $feed->set_cache_duration(1800);
 $feed->set_timeout(30);
 $feed->enable_cache(True);
-//$feed->force_feed(true);
+$feed->force_feed(True);
+$feed->set_output_encoding('UTF-8');
 $success = $feed->init();
+$con = mysql_connect("localhost", "root", "pswd4mysql");
+mysql_select_db("rss", $con);
 
 // We'll make sure that the right content type and character encoding gets set automatically.
 // This function will grab the proper character encoding, as well as set the content type to text/html.
@@ -88,6 +91,7 @@ $feed->handle_content_type();
 
 <div id="header">
 	<div id="headerInner">
+<!--
 		<div id="logoContainer">
 			<div id="logoContainerInner">
 				<div align="center"><a href="http://forex.fusionworks.org"><img src="./for_the_demo/logo_simplepie_demo.png" border="0" /></a></div>
@@ -95,6 +99,7 @@ $feed->handle_content_type();
 			</div>
 
 		</div>
+-->
 		<div id="menu">
 		<!-- I know, I know, I know... tables for layout, I know.  If a web standards evangelist (like me) has to resort
 		to using tables for something, it's because no other possible solution could be found.  This issue?  No way to
@@ -288,6 +293,24 @@ $feed->handle_content_type();
 
 				<!-- Let's begin looping through each individual news item in the feed. -->
 				<?php foreach($feed->get_items() as $item): ?>
+                                    <?php
+                                    // Save them to sql
+                                    $src_title = mysql_real_escape_string($feed->get_title());
+                                    $src_link = mysql_real_escape_string($feed->get_link());
+                                    $permalink = mysql_real_escape_string($item->get_permalink());
+                                    $title = mysql_real_escape_string($item->get_title());
+                                    $content = mysql_real_escape_string($item->get_description());
+                                    $date = $item->get_date('j-M-Y, g:i:a');
+                                    $content_hash = md5("$title + $content + $date");
+                                    $result = mysql_query("SELECT * FROM posts WHERE content_hash = '" . $content_hash . "'");
+                                    $num_rows = mysql_num_rows($result);
+ 
+                                     if ($num_rows > 0) { print "Saved"; }
+                                     else
+                                     {
+                                       mysql_query("INSERT INTO posts (src_title, src_link, date, content, content_hash, url, title) VALUES ('" . $src_title . "','" . $src_link . "','" . $date . "', '" . $content . "', '" . $content_hash . "', '" . $permalink . "', '" . $title . "')", $con) or die();
+                                     }
+                                    ?>
 					<div class="chunk">
 
 						<!-- If the item has a permalink back to the original post (which 99% of them do), link the item's title to it. -->
@@ -330,7 +353,8 @@ $feed->handle_content_type();
 
 				<!-- Stop looping through each item once we've gone through all of them. -->
 				<?php endforeach; ?>
-
+				<?php mysql_close($con); ?>
+ 
 			<!-- From here on, we're no longer using data from the feed. -->
 			<?php endif; ?>
 
