@@ -152,7 +152,13 @@ $feed->handle_content_type();
 
 		        <p class="sample_feeds">
 			<p align="center">News 新闻</p>
-			<strong>Tech:</strong>
+			<strong>Quora:</strong>
+			<a href="?feed=https://www.quora.com/rss">Top</a>,
+			<a href="?feed=https://www.quora.com/topic/Big-Data/rss">Big Data</a>,
+			<a href="?feed=https://www.quora.com/topic/High-Frequency-Trading/rss">High Frequency Trading</a>,
+			<a href="?feed=https://www.quora.com/topic/Machine-Learning/rss">Machine Learning</a>,
+			<a href="?feed=https://www.quora.com/topic/Wall-Street/rss">Wall Street</a>
+			</br><strong>Tech:</strong>
 			<a href="?feed=https://lwn.net/headlines/rss">LWN News</a>,
 			<a href="?feed=http://feeds.feedburner.com/TechCrunch/">TechCrunch</a>,
 			<a href="?feed=http://rss.cnbeta.com/rss">cnBeta</a>
@@ -173,7 +179,6 @@ $feed->handle_content_type();
 			</br><strong>Forex:</strong>
 			<a href="?feed=http://www.fxtimes.com/feed" title="World News">Forex Times</a>,
 			<a href="?feed=http://rss.forexfactory.net/news/all.xml">Forex Factory</a>,
-			<a href="?feed=http://rss.forexfactory.net/forum/all.xml">Forex Factory Forum</a>,
 			<a href="?feed=http://xml.fxstreet.com/news/forex-news/index.xml">Forex Street</a>
 			</br><strong>Economist:</strong>
 			<a href="?feed=http://www.economist.com/sections/business-finance/rss.xml">Business and finance</a>,
@@ -307,10 +312,11 @@ $feed->handle_content_type();
                                     $result = mysql_query("SELECT * FROM posts WHERE content_hash = '" . $content_hash . "'");
                                     $num_rows = mysql_num_rows($result);
  
-                                     if ($num_rows > 0) { print "Saved"; }
+                                     if ($num_rows > 0) { echo '<img width="2%" src="for_the_demo/inactive_star.svg" border=0 />'; }
                                      else
                                      {
                                        mysql_query("INSERT INTO posts (src_title, src_link, date, content, content_hash, url, title) VALUES ('" . $src_title . "','" . $src_link . "','" . $item_date . "', '" . $item_content . "', '" . $content_hash . "', '" . $item_permalink . "', '" . $item_title . "')", $con);
+                                       echo '<img width="2%" src="for_the_demo/active_star.svg" border=0 />';
                                      }
                                     ?>
 					<div class="chunk">
