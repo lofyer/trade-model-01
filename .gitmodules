@@ -1,0 +1,3 @@
+[submodule "hera/forex-rate-board"]
+	path = hera/forex-rate-board
+	url = https://github.com/lofyer/forex-rate-board
